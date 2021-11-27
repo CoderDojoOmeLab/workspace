@@ -1,0 +1,13 @@
+
+/* 画像の上に要素を関連付けする */
+.textImage {
+    position: relative; 
+    display: inline-block;
+}
+
+/* 文字のポジション */
+.textImage p {
+    position: absolute; 
+    top: 0; 
+    left: 100;
+}

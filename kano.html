@@ -5,17 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>かのワークスラボ</title>
 
-    <!-- 最新のライブラリはここで見つける　https://cdnjs.com/libraries/p5.js -->
+    <!-- 最新のp5ライブラリはここで見つける　https://cdnjs.com/libraries/p5.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+
+    <!-- 自分のCSSはここ -->
+    <link rel="stylesheet" href="./kano.css">
     <!-- ↓自分のプログラムはここ -->
     <script src="kano.js"></script>
 
   </head>
   <body>
-      <h1>かの「マウスをくるくる、たまにクリック」</h1>
-      <div id="キャンバスの位置"></div>
-      <p id="形">キャンバス上の形を指定する</p>
-      <img src="img/btn001.gif" id="buttonA">
-      <img src="img/btn001.gif" id="buttonB">
+
+    <h1>かの「マウスをくるくる、たまにクリック」</h1>
+
+    <div id="キャンバスの位置"></div>
+
+    <p id="形">キャンバス上の形を指定する</p>
+    <div class="textImage">
+      <img src="img/btn001.gif" id="buttonA" alt=""><p>さんかく</p>
+    </div>
+    <img src="img/btn001.gif" id="buttonB" alt=""><p>まる</p>
+
   </body>
 </html>

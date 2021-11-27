@@ -36,6 +36,7 @@ function draw(){
     // 形を書く
     switch (strShape) {
         case "○":
+            fill('#4444FF');
             ellipse(mouseX, mouseY, 80, 80);    // 円を描く
             break;
         case "△":
