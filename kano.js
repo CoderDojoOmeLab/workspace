@@ -1,3 +1,5 @@
+"use strict";
+
 //HTMLページが読み込まれた後で１回だけ実行
 window.onload = function() {
     document.getElementById("buttonA").addEventListener('click', changeShapeA);
@@ -24,7 +26,7 @@ function setup(){
 //キャンバス：ずーっと↓ここを繰り返す。マウスの位置に図形を描画する
 function draw(){
     // 形を調べる
-    strShape = document.getElementById("形").textContent;
+    var strShape = document.getElementById("形").textContent;
 
     // マウスを調べて、色を決める
     if (mouseIsPressed) { 
