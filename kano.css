@@ -1,13 +1,17 @@
 
-/* 画像の上に要素を関連付けする */
+/* 親要素の画像は相対配置とする */
 .textImage {
     position: relative; 
     display: inline-block;
 }
 
-/* 文字のポジション */
+/* 文字のポジションは絶対配置とする */
 .textImage p {
     position: absolute; 
+    color:blue;
+    font-weight: bold;
     top: 0; 
-    left: 100;
+    left: 0 px;
+    padding-left: 50px;
 }
+
