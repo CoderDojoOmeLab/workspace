@@ -2,7 +2,7 @@
 window.onload = function() {
     document.getElementById("buttonA").addEventListener('click', changeShapeA);
     document.getElementById("buttonB").addEventListener('click', changeShapeB);
-};
+}
 
 
 // 形を変える命令を送る
@@ -18,7 +18,7 @@ function changeShapeB() {
 function setup(){
     createCanvas(800,400).parent('キャンバスの位置');     // キャンバスのサイズ
     background('#000033');     // 背景の色(0;黒 #RRGGBB)
-};
+}
  
 
 //キャンバス：ずーっと↓ここを繰り返す。マウスの位置に図形を描画する
@@ -46,5 +46,5 @@ function draw(){
             rect(mouseX-10, mouseY-10, 20, 20);
             break;
     }
-};
+}
 
