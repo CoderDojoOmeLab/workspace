@@ -12,7 +12,7 @@ function setup(){
 
 //キャンバス：ずーっと↓ここを繰り返す
 function draw(){
-    background("#330000");         // 背景の色：常に上書きして前のフレームを消す
+    background("#883333");         // 背景の色：常に上書きして前のフレームを消す
     orbitControl();                // オービット制御（ぐりぐり）
 
     rotateX(angle);
