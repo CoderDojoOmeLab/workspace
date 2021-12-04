@@ -1,6 +1,10 @@
 "use strict";
 // 宣言
-let angle = 0;
+let angle = {
+    x: 0,
+    y: 0,
+    z: 0
+};
 let player = {
     x: 0, 
     y: 0, 
@@ -14,7 +18,7 @@ addEventListener( "keydown", keydownfunc );
 
 //キャンバス：最初の1回だけ実行
 function setup(){
-    createCanvas(800, 400, WEBGL).parent('キャンバスの位置');  // WebGLモードでキャンバスを作成（Graphic Libraly）
+    createCanvas(1024, 600, WEBGL).parent('キャンバスの位置');  // WebGLモードでキャンバスを作成（Graphic Libraly）
     angleMode(DEGREES);             // 角度（ラジアンでなく、角度°）
     debugMode();                    // デバッグモード（地平線や角度の起点を表示する！！）
     normalMaterial();               // デバッグ向けマテリアル
@@ -27,15 +31,17 @@ function draw(){
     background("#883333");          // 背景の色：常に上書きして前のフレームを消す
     orbitControl();                 // オービット制御（ぐりぐり）
 
-    //rotateX(angle);
-    rotateY(angle);
-    //rotateZ(angle);
+    rotateX(angle.x);
+    rotateY(angle.y);
+    rotateZ(angle.z);
     translate( player.x, player.y, player.z );
 
     // 座標を設定してから立体を描くこと
     box(50, 60, 200 ); // box( 幅, 高さ, 奥行き, ?, ? ) ?はサブディビジョン数4以下
     sphere(50);
-    cone(90,20,25);
+    rotateX(-90);
+    translate(0,140,0);
+    cone(35,80,40);
 
     //angle += 1;
 
@@ -50,8 +56,12 @@ function draw(){
 // キー操作
 function keydownfunc(event) {
     var key_code = event.keyCode;
-    if( key_code === 88 ) angle -= 8; //x
-    if( key_code === 90 ) angle += 8; //z
+    if( key_code === 88 ) angle.y -= 8; //[x]
+    if( key_code === 90 ) angle.y += 8; //[z]
+    if( key_code === 65 ) angle.x -= 8; //[a]
+    if( key_code === 83 ) angle.x += 8; //[s]
+    if( key_code === 81 ) angle.z -= 8; //[q]
+    if( key_code === 87 ) angle.z += 8; //[w]
     if( key_code === 37 ) player.x -= 8; //左
     if( key_code === 38 ) player.z -= 8; //上
     if( key_code === 39 ) player.x += 8; //右
