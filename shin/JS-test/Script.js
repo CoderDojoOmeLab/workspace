@@ -1,6 +1,6 @@
 window.addEventListener('load', init)
 
-function init() { 
+function init() {
 
     const width = 960
     const height = 540
