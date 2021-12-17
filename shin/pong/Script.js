@@ -1,7 +1,7 @@
 //Copyright ©2021 by Shinnosuke Kataoka
 
 //my functions 
-function genRadom(min, max, randomNega) {
+function genRadom(min, max, randomNega = false) {
     var list = [1, -1];
     var num = Math.floor(Math.random() * (max + 1 - min)) + min;
     num = Math.floor( num );
@@ -11,7 +11,7 @@ function genRadom(min, max, randomNega) {
     return num;
 }
 
-function getSpriteAngle(spriteName) {
+function getSpriteAngle(spriteName) {   //getDirectionがあったから作る必要なかった。
     v = spriteName.velocity;
     //useing complex number to calcurate angle
     if (v.x > 0) {
@@ -50,7 +50,6 @@ function setup() {
     ball.maxSpeed = 4;
     ball.setSpeed(ball.maxSpeed, angle);
     ball.shapeColor = color(255);
-    
 }
 
 
@@ -86,6 +85,17 @@ function draw() {
     if (ball.position.y >= height - ball.height/2 || ball.position.y <= ball.height/2) {
         ball.setSpeed(ball.maxSpeed, ((getSpriteAngle(ball) -90) * -1) + 90);
     }
+    // reset ball position
+    if (ball.position.x < 0 || ball.position.x > width) {
+        if (ball.position.x < 0) {
+            ball.setSpeed(ball.maxSpeed, (genRadom(30, 150) *-1) - 90);
+        } else if (ball.position.x > width) {
+            ball.setSpeed(ball.maxSpeed, genRadom(30, 150) - 90);
+        }
+        ball.position = createVector(width/2, genRadom(ball.height/2, height - ball.height/2));
+        ball.setDefaultCollider();
+    }
+
 
     //draw
     background(0); 
