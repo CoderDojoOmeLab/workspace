@@ -6,9 +6,20 @@ function genRadom(min, max, randomNega) {
     var num = Math.floor(Math.random() * (max + 1 - min)) + min;
     num = Math.floor( num );
     if (randomNega) {  //make it negative randomly
-        num *= list[Math.floor(Math.random() * (2)) + 0]
+        num *= list[Math.floor(Math.random() * (2)) + 0];
     }
     return num;
+}
+
+function getSpriteAngle(spriteName) {
+    v = spriteName.velocity;
+    //useing complex number to calcurate angle
+    if (v.x > 0) {
+        angle = Math.floor(atan(v.y/v.x)/(Math.PI/180)) -180;
+    } else if (v.x < 0){
+        angle = Math.floor(atan(v.y/v.x)/(Math.PI/180));
+    }
+    return angle;
 }
 
 
@@ -23,24 +34,28 @@ function setup() {
     //player
     player = createSprite(30, height/2, 10, 80);
     player.shapeColor = color(255);
-    player.limitSpeed(0);
+
+    //bot player
+    bot = createSprite(width - 30, height/2, 10, 80);
+    bot.shapeColor = color(255);
+
+    //group
+    racket = new Group();
+    racket.add(player);
+    racket.add(bot);
 
     //ball 
     ball = createSprite(width/2, genRadom(5, height-5), 10, 10);
     var angle = genRadom(30, 150, true) - 90;
-    ball.addSpeed(5, angle);
-    print(angle);
-    v = ball.velocity;
-    print(v.x)
+    ball.maxSpeed = 4;
+    ball.setSpeed(ball.maxSpeed, angle);
     ball.shapeColor = color(255);
     
-    
-
 }
+
 
 //run this function each frame
 function draw() {
-
     //check for key input
     if (keyIsPressed) {
         //move player rectangle according to key input during the rect stays in the canvas
@@ -53,40 +68,28 @@ function draw() {
         }
     }
 
+    //bot  
+    if (ball.position.x > width/2) { // when ball on the right side of the canvas
+        if (ball.position.y < bot.position.y) { // in case that ball y coordinate above bot racket 
+            bot.position.y -= 5;
+        } else if (ball.position.y > bot.position.y) {
+            bot.position.y += 5;
+        }
+    }
 
-    //ball
-    ball.collide(player, bounceBall)
+    //ball 
+    ball.collide(racket, bounceBall)
     function bounceBall() {
-        ball.setSpeed(5, ball.getSpeed() * -1);
-        print("!")
+        ball.setSpeed(ball.maxSpeed, getSpriteAngle(ball) * -1);
     }
     //when hit xAxis wall 
-
-    
     if (ball.position.y >= height - ball.height/2 || ball.position.y <= ball.height/2) {
-        print("!!")
-        v = ball.velocity;
-        if (v.x > 0) {
-            theta = Math.floor(atan(v.y/v.x)/(Math.PI/180)) -180
-        } else {
-            //use complex number to calcurate angle 
-            theta = Math.floor(atan(v.y/v.x)/(Math.PI/180));
-        }
-
-
-        print (theta)
-        ball.setSpeed(5, ((theta -90) * -1) + 90);
+        ball.setSpeed(ball.maxSpeed, ((getSpriteAngle(ball) -90) * -1) + 90);
     }
-    
 
     //draw
     background(0); 
 
     //sprites
     drawSprites();
-
-    
-
-    
-
 }
