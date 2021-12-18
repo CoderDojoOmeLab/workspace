@@ -9,7 +9,9 @@ function setup(){
 }
 
 //メイン処理（ずっと）
-function draw(){}
+function draw(){
+    background("#888888");
+}
 
 
 
