@@ -1,10 +1,19 @@
 @charset "utf-8";
 
-.header{
+body{
+  width: 700px;
+  background-color:;
+}
+
+header{
   background-color:silver;
   padding: 20px;
 }
 
-.main li{
+main li{
   list-style: none;
+}
+
+.footer{
+  background-color:silver;
 }
