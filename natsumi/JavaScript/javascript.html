@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="utf-8">
+    <title>JS練習</title>
+    <script src="natsu.js"></script>
+    <script src="date.js"></script>
+    <script src="three3.js"></script>
+    <script src="natsumi.js"></script>
+    <link rel="stylesheet" href="stylesheet_js.css">
+</head>
+<body>
+  <header></header>
+  
+  <main>
+    <h1 class="main-title1">JavaScript</h1>
+      <div id = "ikigomi"></div>
+      <script type="text/javascript">Viewnatsu();</script>
+    <!--入出力を試してみる-->
+    <h3>1.入力した言葉を、宮城弁に変換する</h3>
+    <form name="ChangeString">
+      <input type="text" id="myString" size="40" placeholder="何かメッセージを入れてください">
+      <input type="button" value="変換！" onclick="NatsuChange()">
+      <div id = "natsu"></div>
+    </form>
+  
+    <!--ボタンを押して日付・時刻表示-->
+    <h3>2.日付・時刻を表示</h3>
+    <form name="Date">
+      <input type = "button" value="日付・時刻" onclick="Viewdate()">
+      <div id = "date"></div>
+      <!--<div id = "aaa"></div> 中身を見たかった-->
+    </form>
+  
+    <!--テキスト１，２を合体-->
+    <h3>3.テキスト１，２を合わせて表示する</h3>
+    <from name="Gattai">
+      <p>
+        テキスト入力１
+        <input type="text" id="text1" size="40"     placeholder="何かテキストを入力してください">
+      </p>
+      <p>
+        テキスト入力２
+        <input type="text" id="text2" size="40" placeholder="何かテキストを入力してください">
+      </p>
+      <input type="button" value="合体" onclick="Textgattai()">
+      <div id = "こたえ"></div>
+    </from>
+  
+    <!-- DOM -->
+    <h3>4.ボタンを押したら、言葉を書き換える</h3>
+    <p id="A">Hello!</p>
+    <img src="button.png" id="Button" width="70" height="40">
+    <!--<p id="A">Hello!</p>
+    <input type="button" value="DOM!" id="button">-->
+  
+    <!--Three-->
+    
+    <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
+    <script type="text/javascript">init();</script>-->
+    </main>
+
+  <footer></footer>
+  
+</body>
+</html>
