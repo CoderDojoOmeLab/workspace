@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+.header{
+  background-color:silver;
+  padding: 20px;
+}
+
+.main li{
+  list-style: none;
+}
