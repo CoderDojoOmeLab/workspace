@@ -1,6 +1,23 @@
 @charset "utf-8";
 
-.header{
+header{
   background-color:royalblue;
   padding: 20px;
+}
+
+body{
+  width: 700px;
+  /* width: 70vw; */
+}
+
+ .img-sim1{
+  width: 588px;
+  height: 255px;
+  /* width: 70vw; */
+} 
+
+.main-title1{
+  border-bottom: 3px solid royalblue;
+  font-family: cursive;
+  margin-bottom: 50px;
 }
