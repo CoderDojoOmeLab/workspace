@@ -6,6 +6,11 @@ window.onload = function() {
     document.getElementById("buttonB").addEventListener('click', changeShapeB);
 }
 
+// この関数を読んだら値を戻すだけ
+function KANO_MESSAGE( strTemp ) {
+    return strTemp + "だっちゃ";
+}
+
 
 // 形を変える命令を送る
 function changeShapeA() {
