@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+body{
+  width: 700px;
+}
+
+header{
+  background-color:lightblue;
+  padding: 5px;
+}
+
+.main-title1{
+  border-bottom: 3px solid lightblue;
+  font-family: cursive;
+  margin-bottom: 50px;
+}

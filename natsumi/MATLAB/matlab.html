@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  <script src="natsumi.js"></script>
+  <title>MATLAB勉強</title>
+  <link rel="stylesheet" href="stylesheet_MT.css">
+</head>
+
+<body>
+  <header>
+    <a href='../../index.html'><img src="https://coderdojoome.github.io/img/cdome48px.png"></a>
+  </header>
+  
+  <main>
+    <h1 class="main-title1">MATLAB</h1>
+    <p>MATLABで勉強したことをここに記録していきます。</p>
+    <h2>1.シミュレーション（波動方程式）</h2>
+    <p>授業で「熱伝導シミュレーション」をMATLABを用いて行いました。「社会現象や物理現象をMATLABでシミュレーションせよ」という課題が出され、私は波動方程式の解の動きをシミュレーションしました。</p>
+  
+    <h3>期末課題について</h3>
+    <p>１．目的：２次元の波動方程式を解いて、時間による波の変位をグラフで可視化する。</p>
+
+    <p>２．モデル化方法：範囲は一辺の長さが５の正方形とする。一辺の分割数をｍとし、節点における変位uを考える。このとき波の現象を離散化すると以下の通り。（節点と節点の間の長さをｈとする）</p>
+    <img src="node.png" alt="" class="img-sim1">
+
+    <p>３．解法：陽解法を用いる。</p>
+    <img src="cal_process.png" alt="" class="img-sim2">
+    <p>上記の漸化式をMATLABプログラムで解いて、グラフに出力する。</p>
+  
+    <p>作成したGUIアプリケーションがこちら↓</p>
+    <p>境界条件：０（正方形のふちにおいて、u=0）</p>
+    <video src="gui_hado_revised.mp4" loop autoplay muted width="558" height="255"></video>
+
+    <video src="gui_hado_revised3.mp4" loop autoplay muted width="558" height="255"></video>
+
+    <p>境界条件：300（正方形のふちにおいて、u=300）</p>
+    <video src="gui_hado_revised2.mp4" loop autoplay muted width="558" height="255"></video>
+
+
+    <p><a href='../../natsumi.html'>Back</a></p>
+  </main>
+
+
+  <footer></footer>
+
+
+</body>

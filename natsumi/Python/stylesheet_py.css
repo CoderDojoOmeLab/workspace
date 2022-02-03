@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+body{
+  width: 700px;
+}
+
+header{
+  background-color:khaki;
+  padding: 5px;
+}
+
+.main-title1{
+  border-bottom: 3px solid khaki;
+  font-family: cursive;
+  margin-bottom: 50px;
+}
