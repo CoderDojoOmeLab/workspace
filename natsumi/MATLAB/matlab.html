@@ -24,17 +24,20 @@
     <p>２．モデル化方法：範囲は一辺の長さが５の正方形とする。一辺の分割数をｍとし、節点における変位uを考える。このとき波の現象を離散化すると以下の通り。（節点と節点の間の長さをｈとする）</p>
     <img src="node.png" alt="" class="img-sim1">
 
+    <p>正方形のふちでは、uを以下のように定める(境界条件)。</p>
+    <img src="border.png" alt="" class="img-sim2">
+
     <p>３．解法：陽解法を用いる。</p>
-    <img src="cal_process.png" alt="" class="img-sim2">
+    <img src="cal_process.png" alt="" class="img-sim3">
     <p>上記の漸化式をMATLABプログラムで解いて、グラフに出力する。</p>
   
     <p>作成したGUIアプリケーションがこちら↓</p>
-    <p>境界条件：０（正方形のふちにおいて、u=0）</p>
+    
     <video src="gui_hado_revised.mp4" loop autoplay muted width="558" height="255"></video>
 
-    <video src="gui_hado_revised3.mp4" loop autoplay muted width="558" height="255"></video>
+    <video src="gui_hado_revised3.mp4" loop autoplay muted width="558" height="255" class="video2"></video>
 
-    <p>境界条件：300（正方形のふちにおいて、u=300）</p>
+    <p>境界条件：300（正方形のふちにおいて、u=300）にしてみると、、</p>
     <video src="gui_hado_revised2.mp4" loop autoplay muted width="558" height="255"></video>
 
 

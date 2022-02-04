@@ -15,11 +15,20 @@ body{
   height: 250px;
 }
 
- .img-sim2{
+.img-sim2{
+  width: 470px;
+  height: 250px;
+}
+
+ .img-sim3{
   width: 700px;
   height: 300px;
   /* width: 70vw; */
 } 
+
+.video2{
+  padding-bottom: 30px;
+}
 
 .main-title1{
   border-bottom: 3px solid royalblue;
