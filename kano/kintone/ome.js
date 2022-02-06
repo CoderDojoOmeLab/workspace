@@ -8,13 +8,13 @@
         const spaceID = kintone.app.record.getSpaceElement('kanoSpace');
         // ボタンを作成する
         const btn = document.createElement('button');
-        btn.textContent = 'かのボタンrev2';
+        btn.textContent = 'かのボタンrev3';
         spaceID.appendChild(btn);
 
         btn.onclick=()=>{
             let record = kintone.app.record.get();
-            let kanoValue = record.record['独自関数'].value;
-            kanoValue.record['独自関数'].value = '追加したデータ';
+            let kanoValue = record.record['チーム'].value;
+            record.record['独自関数'].value = kanoValue + 'だよ';
             kintone.app.record.set( record );
         }
         return event;
