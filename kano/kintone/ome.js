@@ -13,8 +13,9 @@
 
         btn.onclick=()=>{
             let record = kintone.app.record.get();
-            let kanoValue = record.record[独自関数].value;
-            kintone.app.record.set( kanoValue + 'だよ' );
+            let kanoValue = record.record['独自関数'].value;
+            kanoValue.record['独自関数'].value = 'だっちゃ';
+            kintone.app.record.set( record );
         }
         return event;
     });
