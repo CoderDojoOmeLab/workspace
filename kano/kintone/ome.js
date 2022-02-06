@@ -13,8 +13,8 @@
 
         btn.onclick=()=>{
             let record = kintone.app.record.get();
-            let kanoValue = record.record['チーム'].value;
-            record.record['独自関数'].value = kanoValue + 'だよ';
+            //let kanoValue = record.record['チーム'].value;
+            record.record['独自関数'].value = 'だよ';
             kintone.app.record.set( record );
         }
         return event;
