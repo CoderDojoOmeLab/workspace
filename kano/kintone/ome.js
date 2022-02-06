@@ -14,7 +14,7 @@
         btn.onclick=()=>{
             let record = kintone.app.record.get();
             let kanoValue = record.record['独自関数'].value;
-            kanoValue.record['独自関数'].value = 'だっちゃ';
+            kanoValue.record['独自関数'].value = '追加したデータ';
             kintone.app.record.set( record );
         }
         return event;
