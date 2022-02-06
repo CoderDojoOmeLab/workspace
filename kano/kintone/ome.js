@@ -12,8 +12,9 @@
         spaceID.appendChild(btn);
 
         btn.onclick=()=>{
-            var kanoTest = kintone.app.getFieldElements('_KanoField');
-            kanoTest.value='ぼよよーん';
+            let record = kintone.app.record.get();
+            let kanoValue = record.record[独自関数].value;
+            kintone.app.record.set( kanoValue + 'だよ' );
         }
         return event;
     });
