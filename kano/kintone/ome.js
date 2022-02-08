@@ -5,7 +5,7 @@
     "use strict";
     kintone.events.on(['app.record.create.submit', 'app.record.edit.submit'], function (event){
         var record = event.record;
-        record['独自関数'].value = "あああ";
+        record['myFunc'].value = "Yeah!";
 
         return event;
     });})();
