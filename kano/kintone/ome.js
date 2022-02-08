@@ -14,7 +14,7 @@
         btn.onclick=()=>{
             let record = kintone.app.record.get();
             //let kanoValue = record.record['チーム'].value;
-            record.record['独自関数'].value = 'だよ';
+            record.record['_KanoField'].value = 'だよ';
             kintone.app.record.set( record );
         }
         return event;
