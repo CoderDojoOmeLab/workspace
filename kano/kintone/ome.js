@@ -8,7 +8,7 @@
         const spaceID = kintone.app.record.getSpaceElement('kanoSpace');
         // ボタンを作成する
         const btn = document.createElement('button');
-        btn.textContent = 'かのボタンrev4';
+        btn.textContent = 'かのボタンrev5';
         spaceID.appendChild(btn);
 
         var record = event.record;
