@@ -10,9 +10,9 @@
 
 <body>
   <h1>ワークシートの値を表示したい</h1>
+  <pre><div id="sheetData"></div></pre>
 
 <script type="text/javascript">
-  console.log("GETする");
   // REST-API 呼び出し初期化用のパラメーター
 
   // 案１
@@ -39,20 +39,33 @@
   //});
 
   // 案３
-  async function A() {
-  let response = await fetch (
-    `https://sheets.googleapis.com/v4/spreadsheets/1pHhono-TanTsOU4uj-jQhOhXQyiaFvgx00SUQiDQG94/values/%E5%B9%B4%E9%BD%A2%E5%88%A5%E4%BA%BA%E5%8F%A3?key=AIzaSyDXJkmtujRmho-Xc9iP_pkENQbfipYkRyg`
-  );
+  async function getGoogleSpreadSheets() {
+    let response = await fetch (
+      `https://sheets.googleapis.com/v4/spreadsheets/1pHhono-TanTsOU4uj-jQhOhXQyiaFvgx00SUQiDQG94/values/%E5%B9%B4%E9%BD%A2%E5%88%A5%E4%BA%BA%E5%8F%A3?key=AIzaSyDXJkmtujRmho-Xc9iP_pkENQbfipYkRyg`,
+      {
+        method: 'GET'
+      }
+    ).then(response => response.json())
 
-  if (response.ok) {
-    let json = response.json();
-    console.log(json);
-  } else {
-    alert('HTTP response Error' + response.status);
-  }
+    //.then(data => print(data));
+    // として関数を分けてもいい
+    //function print(data) {
+    //  console.log(data);
+    //}
+
+    .then(function(data){
+      console.log(data);
+      //document.getElementById('sheetData').innerHTML = JSON.stringify(data, null, 4);
+      document.getElementById('sheetData').innerHTML = JSON.stringify(data);
+    })
+
+      // JSON.stringify … JSONオブジェクト[{a:0,b:1}]を、JSON文字列[{"a":0,"b":1}]に変換するメソッド
+      // JSON.parse     … JSONを javascript で読み込む関数
+      //let textJson = JSON.stringify(response.json);
   };
+
  
-  A();
+  getGoogleSpreadSheets();
 
 </script>
 
