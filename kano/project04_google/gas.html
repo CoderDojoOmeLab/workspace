@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>スプレッドシートを操作する</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+  <h1>ワークシートの値を表示したい</h1>
+</body>
+
+<script>
+    // REST-API 呼び出し
+	var request = new XMLHttpRequest();
+	request.open('GET', 'https://sheets.googleapis.com/v4/spreadsheets/1pHhono-TanTsOU4uj-jQhOhXQyiaFvgx00SUQiDQG94/values/%E5%B9%B4%E9%BD%A2%E5%88%A5%E4%BA%BA%E5%8F%A3?key=AIzaSyDXJkmtujRmho-Xc9iP_pkENQbfipYkRyg', true);
+	request.responseType = 'json';
+
+    // JSONが返ってきたらロードする
+	request.onload = function() {
+	const jsondata = this.response;
+	console.log(jsondata);
+    
+	const obj = JSON.parse(JSON.stringify(jsondata));
+	console.log(obj.values[1]);
+    }
+
+</script>
+
+</html>
