@@ -55,13 +55,12 @@
 
     .then(function(data){
       console.log(data);
-      //document.getElementById('sheetData').innerHTML = JSON.stringify(data, null, 4);
-      document.getElementById('sheetData').innerHTML = JSON.stringify(data);
+      //document.getElementById('sheetData').innerHTML = JSON.stringify(data);
+      document.getElementById('sheetData').innerHTML = JSON.stringify(data, null, 4);
     })
 
       // JSON.stringify … JSONオブジェクト[{a:0,b:1}]を、JSON文字列[{"a":0,"b":1}]に変換するメソッド
       // JSON.parse     … JSONを javascript で読み込む関数
-      //let textJson = JSON.stringify(response.json);
   };
 
  
