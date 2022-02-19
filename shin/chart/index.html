@@ -1,22 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>google chart</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <title>testing google chart</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 <body>
-    <canvas id="chart" width="400" height="350"></canvas>
+
+    <button id="button1"></button>
+
     <script>
-        var ctx = document.getElementById('chart').getContext('2d');
-        var chart = new Chart(ctx, {
-            type = pipe,
-            data: {
-                
-            }
-        })
+        var button = Element.getElementById('button1');
+        button.addEventListener('click', function(){
+            
+        }, false);
+    </script>
+
+    <h1>google chart test</h1>
+
+    <div id="myChart" style="width: 400px; height: 350px;"></div>
+    <div id="myChart2" style="width: 400px; height: 350px;"></div>
+    <div id="myChart3" style="width: 400px; height: 350px;"></div>
+
+    <script>
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['都市', '人口'],
+            ['東京',     10],
+            ['ロンドン',     20],
+            ['シドニー',     60],
+            ['北京',     10],
+      ]);
+    
+
+    var chart = new google.visualization.PieChart(document.getElementById('myChart'));
+    chart.draw(data);
+
+    var chart = new google.visualization.BarChart(document.getElementById('myChart2'));
+    chart.draw(data);
+
+    var chart = new google.visualization.LineChart(document.getElementById('myChart3'));
+    chart.draw(data);
+    };
+       
     </script>
 </body>
 </html>
