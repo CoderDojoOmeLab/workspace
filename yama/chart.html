@@ -6,14 +6,45 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>★グラフ★</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- google script -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 
 <body>
   <h1>★表題　テスト　グラフ表示★</h1>
+  <div id="myChart" style="width: 900px; height: 500px;"></div>
+  <div id="myChart2" style="width: 900px; height: 500px;"></div>
+  <div id="myChart3" style="width: 900px; height: 500px;"></div>
+
 </body>
 
 <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['競技', '点数'],
+        ['スノボ',     10],
+        ['スキー',     20],
+        ['カーリング',     30],
+        ['リュージュ',     40],
+      ]);
+      var chart = new google.visualization.PieChart(document.getElementById('myChart'));
+    chart.draw(data);
+  
+    var chart = new google.visualization.BarChart(document.getElementById('myChart2'));
+    chart.draw(data);
+
+    var chart = new google.visualization.LineChart(document.getElementById('myChart3'));
+    chart.draw(data);
+
+
+  }
 
 </script>
+
+
+
 
 </html>
