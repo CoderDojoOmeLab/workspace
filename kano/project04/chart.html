@@ -4,21 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>★タイトル★</title>
+  <title>グラフ描画</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <!-- google script -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
 </head>
 
 <body>
-  <h1>★タイトル★</h1>
+  <h1>Google Chart</h1>
+  <p><a href="https://developers.google.com/chart" target="_blank">Google Charts</a>, ガイド＆リファレンス</p>
+  <!-- 円グラフを追加 -->
   <div id="donutchart" style="width: 900px; height: 500px;"></div>
-  <!-- 棒グラフを追加 -->
-  <div id="barchart" style="width: 900px; height: 500px;"></div>
-  <div id="linechart" style="width: 900px; height: 500px;"></div>
-  <!-- 棒グラフここまで -->
 
   <script type="text/javascript">
     google.charts.load("current", {packages:["corechart"]});
@@ -26,12 +22,12 @@
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ['Type', 'Point'],
-        ['Tokyo',     10],
-        ['Osaka',      5],
+        ['Tokyo',    10],
+        ['Osaka',     5],
         ['Sapporo',  30],
-        ['Nagoya', 3],
-        ['Okinawa',    2],
-        ['Fukuoka', 1]
+        ['Nagoya',    3],
+        ['Okinawa',   2],
+        ['Fukuoka',   1]
       ]);
 
       var options = {
@@ -42,6 +38,86 @@
       var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
       chart.draw(data, options);
 
+    }
+  </script>
+
+  <h2>▼グラフを表示するHTMLおよび、HTML内に記述したJavascript</h2>
+  <pre><code>
+
+    <!-- google script -->
+    &lt;script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"&gt;&lt;/script&gt;
+
+    &lt;div id="donutchart" style="width: 900px; height: 500px;"&gt;&lt;/div&gt;
+
+
+    &lt;script type="text/javascript"&gt;
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Type', 'Point'],
+        ['Tokyo',    10],
+        ['Osaka',     5],
+        ['Sapporo',  30],
+        ['Nagoya',    3],
+        ['Okinawa',   2],
+        ['Fukuoka',   1]
+      ]);
+
+      var options = {
+        title: 'タイトルxxxxxxxxxxxxxxxxxx',
+        pieHole: 0.4,
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+      chart.draw(data, options);
+
+    }
+    &lt;/script&gt;
+
+  </code></pre>
+
+  <!-- 応用 -->
+  <h3>▼データを入れ替えて、グラフを描画する</h3>
+  <input type="button" value="データ１でグラフ描画" onclick="drawChart2(1);" />
+  <input type="button" value="データ２でグラフ描画" onclick="drawChart2(2);" />
+  <!-- 棒グラフを追加 -->
+  <div id="barchart" style="width: 900px; height: 500px;"></div>
+  <!-- 折れ線グラフここまで -->
+  <div id="linechart" style="width: 900px; height: 500px;"></div>
+
+  <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    //google.charts.setOnLoadCallback(drawChart2(1));
+    function drawChart2( intNumber ) {
+      var data1 = google.visualization.arrayToDataTable([
+        ['Type', 'Point'],
+        ['Tokyo',     10],
+        ['Osaka',      5],
+        ['Sapporo',   30],
+        ['Nagoya',     3],
+        ['Okinawa',    2],
+        ['Fukuoka',    1]
+      ]);
+      var data2 = google.visualization.arrayToDataTable([
+        ['Type', 'Point'],
+        ['Tokyo',       2],
+        ['Osaka',      10],
+        ['Sapporo',    14],
+        ['Nagoya',     22],
+        ['Okinawa',    18],
+        ['Fukuoka',    28]
+      ]);
+
+      var options = {
+        title: 'タイトルxxxxxxxxxxxxxxxxxx',
+      };
+
+      if (intNumber==1) {
+        data = data1;
+      } else {
+        data = data2;
+      }      
       // 棒グラフを追加 
       var chart = new google.visualization.BarChart(document.getElementById('barchart'));
       chart.draw(data, options);
@@ -52,38 +128,6 @@
     }
   </script>
 
-<pre><code>
-  <!-- google script -->
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-  <div id="donutchart" style="width: 900px; height: 500px;"></div>
-
-
-  <script type="text/javascript">
-    google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Type', 'Point'],
-        ['Tokyo',     10],
-        ['Osaka',      5],
-        ['Sapporo',  30],
-        ['Nagoya', 3],
-        ['Okinawa',    2],
-        ['Fukuoka', 1]
-      ]);
-
-      var options = {
-        title: 'タイトルxxxxxxxxxxxxxxxxxx',
-        pieHole: 0.4,
-      };
-
-      var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-      chart.draw(data, options);
-
-    }
-  </script>
-</code></pre>
 
 </body>
 </html>
