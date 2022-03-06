@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>サーバーアプリの開発</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+  <h1>ホームページのカウンター</h1>
+  <p>WEBサイトを表示した回数をカウントする。PHPスクリプトでカウンターアプリを作る。DBはMySQLを起動する。</p>
+  <p><img src="architecture.png"></p>
+
+  <h2>コード</h2>
+  <p>▼index.html</p>
+  <pre><code>
+    &lt;html&gt;
+    &lt;head&gt;&lt;/head&gt;
+    &lt;body&gt;
+     &lt;p&gt;&lt;script type='text/javascript' src='https://funnygeek.sakura.ne.jp/script/counter.php'&gt;&lt;/script&gt;&lt;/p&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+  </code></pre>
+
+  <h2>counter.php</h2>
+  <pre><code>
+&lt;?php
+    header("Content-type: application/x-javascript");
+    $conn = new MySQLi( ‘mysqlxxx.db.sakura.ne.jp’, ‘ユーザ名’, ‘パスワード’, ‘DB名');
+    $conn->set_charset('utf8');
+
+    // SQL実行
+    $sql = 'SELECT `access` FROM `basicTBL` WHERE 1';
+    $result = $conn->query( $sql );
+    $row = $result->fetch_assoc();
+    $i = $row['access’];
+    // SQL結果を返す（index.htmlに結果を書き出す）
+    echo 'document.write("Visited [' . (string) $i . ']");';
+
+    $num = intval($i) + 1;
+    $sql = 'UPDATE `basicTBL` SET `access`=' . (string) $num . ' WHERE 1';
+    $result = $conn->query( $sql );
+
+    // 結果セットを開放してDBクローズ
+    $conn->close();
+?&gt;
+</code></pre>
+
+<h2>DBサーバー（mysql）GUIで設定した</h2>
+<p><img src="db.png"></p>
+
+</body>
+
+</html>
