@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <h1>スノーボード・ファニースノーマン</h1>
+  <h1>雪だるま on スノーボード</h1>
     <!--<canvas>not work...</canvas>-->
     <p>操作方法：キーボード［←］［→］,［↑］加速［↓］減速, 失敗したらリロードしてね。</p>
 </body>
@@ -17,8 +17,8 @@
 <script>
     var c = document.createElement("canvas");
     var ctx = c.getContext("2d");
-    c.width = 600;
-    c.height = 400;
+    c.width = 900;
+    c.height = 600;
     document.body.appendChild(c);
     
     var perm = [];
@@ -78,7 +78,7 @@
             ctx.save();
             ctx.translate(this.x, this.y);
             ctx.rotate(this.rot);
-            ctx.drawImage(this.img, -15, -15, 32,32);
+            ctx.drawImage(this.img, -31, -31, 64, 64,);
             ctx.restore();
         }
     }
